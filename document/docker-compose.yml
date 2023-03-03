@@ -1,0 +1,45 @@
+version: '3'
+services:
+  microService:
+    image: power_docker:1.0
+    container_name: power1
+    ports:
+      - 8102:8102
+    volumes:
+          - /mydata/microService/data/db:/data #文件挂载
+    networks:
+      - saimi_net
+    depends_on:
+      - redis
+      - mysql
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root@123' #设置root帐号密码
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+      MYSQL_DATABASE: 'mall'
+      MYSQL_USER: 'mall'
+      MYSQL_PASSWORD: 'Password_2021'
+    ports:
+      - 3306:3306
+    volumes:
+      - /mydata/mysql/data/db:/var/lib/mysql #数据文件挂载
+      - /mydata/mysql/data/conf:/etc/mysql/conf.d #配置文件挂载
+      - /mydata/mysql/log:/var/log/mysql #日志文件挂载
+    networks:
+      - saimi_net
+  redis:
+    image: redis:7
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - /mydata/redis/data:/data #数据文件挂载
+    ports:
+      - 6379:6379
+    networks:
+      - saimi_net
+networks:
+  saimi_net:

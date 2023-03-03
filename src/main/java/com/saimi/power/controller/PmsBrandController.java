@@ -35,6 +35,7 @@ public class PmsBrandController {
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(brandService.listAllBrand());
+
     }
 
     @ApiOperation("添加品牌")

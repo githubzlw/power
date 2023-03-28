@@ -9,7 +9,7 @@ spring:
 #    username: mall
 #    password: Password_2021
     #railway部署
-    url: jdbc:mysql://containers-us-west-94.railway.app:5670/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://containers-us-west-94.railway.app:5670/railway?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: wCeUHnNhUdPTNGbWbLNM
 

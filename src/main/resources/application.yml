@@ -3,11 +3,16 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://192.168.1.31:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://192.168.1.31:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
 #    docker部署
 #    url: jdbc:mysql://mysql:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-    username: mall
-    password: Password_2021
+#    username: mall
+#    password: Password_2021
+    #railway部署
+    url: jdbc:mysql://containers-us-west-94.railway.app:5670/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: wCeUHnNhUdPTNGbWbLNM
+
   redis:
     host: 192.168.1.55 # Redis服务器地址
 #    host: redis # Redis服务器地址 docker部署
